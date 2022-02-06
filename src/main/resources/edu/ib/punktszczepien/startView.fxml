@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.punktszczepien.StartViewController">
+   <children>
+      <Label fx:id="label" layoutX="278.0" layoutY="60.0" />
+      <Text fill="#2b4380" layoutX="84.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Witamy w punkcie szczepień " textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI Black" size="30.0" />
+         </font>
+      </Text>
+      <Button fx:id="patientBtn" alignment="CENTER" layoutX="166.0" layoutY="160.0" mnemonicParsing="false" onAction="#patientBtnClicked" prefHeight="40.0" prefWidth="267.0" text="Jestem pacjentem">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </Button>
+      <Button fx:id="clinicBtn" alignment="CENTER" layoutX="166.0" layoutY="224.0" mnemonicParsing="false" onAction="#clinicButtonClicked" prefHeight="40.0" prefWidth="267.0" text="Jestem pracownikiem przychodni">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+         </padding>
+      </Button>
+   </children>
+</Pane>
