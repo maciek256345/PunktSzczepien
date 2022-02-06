@@ -107,7 +107,7 @@ public class PatientViewController {
     void changeDateBtnClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
         patientViewDao = new PatientViewDao(dbUtil, consoleTextArea);
         VaccinationDateDAO vaccinationDateDAO = new VaccinationDateDAO(dbUtil, consoleTextArea);
-   
+
         String pesel = peselTextField.getText();
         String data = vaccinationDateChoiceBox.getValue();
         String szczepionka = vaccinationTypeChoiceBox.getValue();
