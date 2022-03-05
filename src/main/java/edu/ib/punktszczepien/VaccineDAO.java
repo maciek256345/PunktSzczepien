@@ -8,6 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class VaccineDAO {
+    /**
+     * Klasa zarządza operacjami na bazie danych
+     * związanych z tabelą przechwoująca szczepionki.
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
     private DBUtil dbUtil;
     private TextArea consoleTextArea;
 
@@ -16,6 +24,15 @@ public class VaccineDAO {
         this.consoleTextArea = consoleTextArea;
     }
 
+    /**
+     * Metda odpowiedzialna za przeniesienie informacji
+     * z obiektu ResultSet do obiektu kolekcyjnego ObservableList
+     * przechowującego obiekty klasy Vaccine.
+     *
+     * @param rs
+     * @return vaccines
+     * @throws SQLException
+     */
     public ObservableList<Vaccine> getAllVaccines(ResultSet rs) throws SQLException {
 
         ObservableList<Vaccine> vaccines = FXCollections.observableArrayList();
@@ -32,7 +49,16 @@ public class VaccineDAO {
     }
 
 
-
+    /**
+     * Metoda zwracająca id oraz nazwe
+     * dla szczepionki przekazanej jako
+     * argument metody.
+     *
+     * @param n
+     * @return vaccines
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public ObservableList<Vaccine> searchVaccines(String n) throws SQLException, ClassNotFoundException {
 
         String selectStmt = "SELECT * FROM szczepionki WHERE nazwa LIKE '%" + n + "%';";
@@ -50,6 +76,16 @@ public class VaccineDAO {
 
     }
 
+    /**
+     * Metoda zwracająca wszystkie
+     * dostępne w klinice
+     * szczepionki, którymi pacjenci
+     * mogą się zaszczepić.
+     *
+     * @return availableVaccines
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public ObservableList<String> availableVaccines() throws SQLException, ClassNotFoundException {
 
         String selectStmt = "SELECT * FROM szczepionki;";
@@ -60,7 +96,7 @@ public class VaccineDAO {
 
             ObservableList<String> availableVaccines = FXCollections.observableArrayList();
 
-            for(Vaccine v:vaccines){
+            for (Vaccine v : vaccines) {
                 availableVaccines.add(v.getNazwa());
             }
 

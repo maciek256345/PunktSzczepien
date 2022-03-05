@@ -5,6 +5,14 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class Patient {
+    /**
+     * Klasa zawiera informacje dotyczące
+     * peselu oraz daty urodzenia pacjenta.
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
     private String pesel;
     private LocalDate birthDate;
 

@@ -15,11 +15,13 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.github.vldrus</groupId>
             <artifactId>cachedrowset-wrapper</artifactId>
             <version>1.0.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>

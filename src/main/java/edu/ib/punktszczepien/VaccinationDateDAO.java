@@ -9,6 +9,14 @@ import java.sql.SQLException;
 import java.util.Random;
 
 public class VaccinationDateDAO {
+    /**
+     * Klasa zarządza operacjami na bazie danych
+     * powiązanymi z datą szczepienia.
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
     private DBUtil dbUtil;
     private TextArea consoleTextArea;
 
@@ -17,22 +25,16 @@ public class VaccinationDateDAO {
         this.consoleTextArea = consoleTextArea;
     }
 
-    public ObservableList<VaccinationDate> getDates(ResultSet rs) throws SQLException {
 
-        ObservableList<VaccinationDate> dates = FXCollections.observableArrayList();
-
-        while (rs.next()) {
-
-            VaccinationDate v = new VaccinationDate();
-            v.setTermin(rs.getString("termin"));
-
-            dates.add(v);
-
-        }
-
-        return dates;
-    }
-
+    /**
+     * Metda odpowiedzialna za przeniesienie informacji
+     * z obiektu ResultSet do obiektu kolekcyjnego ObservableList
+     * przechowującego obiekty klasy VaccinationDate.
+     *
+     * @param rs
+     * @return dates
+     * @throws SQLException
+     */
     public ObservableList<VaccinationDate> getLastVaccinationDate(ResultSet rs) throws SQLException {
 
         ObservableList<VaccinationDate> dates = FXCollections.observableArrayList();
@@ -49,17 +51,24 @@ public class VaccinationDateDAO {
         return dates;
     }
 
-
+    /**
+     * Metoda zwracająca dostępne
+     * terminy szczepień.
+     *
+     * @return availableDates
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public ObservableList<String> availableDates() throws SQLException, ClassNotFoundException {
 
-        String selectStmt = "SELECT DATE_FORMAT(termin, '%Y-%m-%d %H:%i') as termin FROM terminy;";
+        String selectStmt = "SELECT DATE_FORMAT(termin, '%Y-%m-%d %H:%i') as data_szczepienia FROM terminy;";
 
         try {
             ResultSet resultSet = dbUtil.dbExecuteQuery(selectStmt);
-            ObservableList<VaccinationDate> dates = getDates(resultSet);
+            ObservableList<VaccinationDate> dates = getLastVaccinationDate(resultSet);
             ObservableList<String> availableDates = FXCollections.observableArrayList();
 
-            for(VaccinationDate d:dates){
+            for (VaccinationDate d : dates) {
                 availableDates.add(d.getTermin());
             }
             return availableDates;
@@ -72,6 +81,20 @@ public class VaccinationDateDAO {
 
     }
 
+    /**
+     * Metoda zwracająca datę ostatniego
+     * szczepienia tego samego typu, co
+     * szczepionka przekaza jako argument,
+     * dla pacjenta identyfikowanego na podstawie
+     * jego peselu, przekazanego jako drugi
+     * argument metody.
+     *
+     * @param szczepionka
+     * @param pesel
+     * @return rezultat
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public String lastVaccineSameType(String szczepionka, String pesel) throws SQLException, ClassNotFoundException {
         VaccineDAO vaccineDAO = new VaccineDAO(dbUtil, consoleTextArea);
         ObservableList<Vaccine> vaccine = vaccineDAO.searchVaccines(szczepionka);
@@ -87,10 +110,10 @@ public class VaccinationDateDAO {
             ObservableList<VaccinationDate> lastDate = getLastVaccinationDate(resultSet);
             ObservableList<String> lastVaccinationDate = FXCollections.observableArrayList();
 
-            for(VaccinationDate d:lastDate){
+            for (VaccinationDate d : lastDate) {
                 lastVaccinationDate.add(d.getTermin());
             }
-            for(String lv:lastVaccinationDate){
+            for (String lv : lastVaccinationDate) {
                 rezultat = lv;
             }
 
@@ -101,6 +124,18 @@ public class VaccinationDateDAO {
         return rezultat;
     }
 
+
+    /**
+     * Metoda zwracająca datę ostatniego
+     * szczepienia dowolnego typu, dla pacjenta
+     * identyfikowanego na podstawie jego
+     * peselu przekazanego jako argument metody.
+     *
+     * @param pesel
+     * @return rezultat
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public String lastVaccineDifferentType(String pesel) throws SQLException, ClassNotFoundException {
 
 
@@ -114,10 +149,10 @@ public class VaccinationDateDAO {
             ObservableList<String> lastVaccinationDate = FXCollections.observableArrayList();
 
 
-            for(VaccinationDate d:lastDate){
+            for (VaccinationDate d : lastDate) {
                 lastVaccinationDate.add(d.getTermin());
             }
-            for(String lv:lastVaccinationDate){
+            for (String lv : lastVaccinationDate) {
                 rezultat = lv;
             }
 
@@ -129,5 +164,5 @@ public class VaccinationDateDAO {
     }
 
 
-
 }
+

@@ -1,5 +1,13 @@
 package edu.ib.punktszczepien;
 
+/**
+ * Klasa stanowiąca odzwierciedlenie widoku punkt_szczepien z bazy danych.
+ * Pozwala na uzyskanie dostępu do danych dotyczących bieżących zaplanowanych szczepień.
+ *
+ * @author AK
+ * @version 1.0
+ * @since 2022-02-08
+ */
 public class VaccineRegistration {
     private String imie;
     private String nazwisko;
@@ -7,7 +15,24 @@ public class VaccineRegistration {
     private String nr_tel;
     private String nazwa;
     private String termin;
+    private String idSzczepienia;
+    private String idSzczepionki;
 
+    public String getIdSzczepienia() {
+        return idSzczepienia;
+    }
+
+    public void setIdSzczepienia(String idSzczepienia) {
+        this.idSzczepienia = idSzczepienia;
+    }
+
+    public String getIdSzczepionki() {
+        return idSzczepionki;
+    }
+
+    public void setIdSzczepionki(String idSzczepionki) {
+        this.idSzczepionki = idSzczepionki;
+    }
 
     public String getImie() {
         return imie;

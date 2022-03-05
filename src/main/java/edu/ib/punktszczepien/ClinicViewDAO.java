@@ -6,14 +6,24 @@ import javafx.scene.control.TextArea;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Klasa zarządzająca operacjami na bazie danych (wyszukiwanie, dodawanie, aktualizowanie, usuwanie) dla okna aplikacji z poziomu pracownika kliniki.
+ * Zawiera metody odpowiadające za:
+ * pobieranie danych na temat akualnych zapisów na szczepienia (getVaccineRegistrations),
+ * pobieranie danych do wyświetlania statystyk szczepień zrealizowanych (getVaccineStats),
+ * pobieranie danych na temat odbytych szczepień (getVaccineHistory),
+ * dodawanie nowych terminów szczepień (insertVaccineDate),
+ * aktualizowanie zaszczepienia wybranych pacjentów (updateVaccineRegistration),
+ * dodawanie zaszczepionego pacjenta do tabeli szczepienia_zrealizowane (insertVaccineHistory).
+ *
+ * @author AK
+ * @version 1.0
+ * @since 2022-02-08
+ */
 public class ClinicViewDAO {
     private DBUtil dbUtil;
     private TextArea consoleTextArea;
@@ -23,9 +33,15 @@ public class ClinicViewDAO {
         this.consoleTextArea = consoleTextArea;
     }
 
+    /**
+     * Metoda umożliwiająca pobieranie danych na temat akualnych zapisów na szczepienia.
+     *
+     * @return vaccineRegistrations
+     * @throws SQLException
+     */
     public ObservableList<VaccineRegistration> getVaccineRegistrations() throws SQLException {
         ObservableList<VaccineRegistration> vaccineRegistrations = FXCollections.observableArrayList();
-        String selectStmt = "SELECT imie, nazwisko, pesel, nr_tel, nazwa, DATE_FORMAT(termin_szczepienia, '%d.%m.%Yr. %H:%i') as termin FROM punkt_szczepien;";
+        String selectStmt = "SELECT imie, nazwisko, pesel, nr_tel, nazwa, id_szczepienia, id_szczepionki, DATE_FORMAT(termin_szczepienia, '%Y-%m-%d %H:%i') as termin FROM punkt_szczepien;";
 
         try {
 
@@ -41,14 +57,16 @@ public class ClinicViewDAO {
                 v.setNr_tel(rs.getString("nr_tel"));
                 v.setNazwa(rs.getString("nazwa"));
                 v.setTermin(rs.getString("termin"));
+                v.setIdSzczepienia(rs.getString("id_szczepienia"));
+                v.setIdSzczepionki(rs.getString("id_szczepionki"));
 
                 vaccineRegistrations.add(v);
             }
 
-            consoleTextArea.appendText(selectStmt + "\n");
+//            consoleTextArea.appendText(selectStmt + "\n");
 
         } catch (SQLException e) {
-            consoleTextArea.appendText("While searching vaccine registrations, an error occurred. \n");
+            consoleTextArea.appendText("Błąd podczas pobierania aktualnych zapisów na szczepienia. \n");
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -57,6 +75,12 @@ public class ClinicViewDAO {
         return vaccineRegistrations;
     }
 
+    /**
+     * Metoda umożliwiająca pobieranie danych do wyświetlania statystyk szczepień zrealizowanych.
+     *
+     * @return map
+     * @throws SQLException
+     */
     public LinkedHashMap<String, Integer> getVaccineStats() throws SQLException {
         List<VaccineHistory> vaccineHistories = getVaccineHistory().stream().collect(Collectors.toList());
         LinkedHashMap<String, Integer> map = new LinkedHashMap();
@@ -76,9 +100,15 @@ public class ClinicViewDAO {
         return map;
     }
 
+    /**
+     * Metoda umożlwiająca pobieranie danych na temat odbytych szczepień.
+     *
+     * @return vaccineHistories
+     * @throws SQLException
+     */
     public ObservableList<VaccineHistory> getVaccineHistory() throws SQLException {
         ObservableList<VaccineHistory> vaccineHistories = FXCollections.observableArrayList();
-        String selectStmt = "SELECT imie, nazwisko, pesel, nr_tel, nazwa, DATE_FORMAT(data_szczepienia, '%d.%m.%Yr. %H:%i') as termin FROM punkt_szczepien_historia;";
+        String selectStmt = "SELECT imie, nazwisko, pesel, nr_tel, nazwa, id_szczepienia, id_szczepionki, DATE_FORMAT(data_szczepienia, '%Y-%m-%d %H:%i') as termin FROM punkt_szczepien_historia;";
 
         try {
 
@@ -93,14 +123,15 @@ public class ClinicViewDAO {
                 vh.setNazwa(rs.getString("nazwa"));
                 vh.setTermin(rs.getString("termin"));
                 vh.setImie(rs.getString("imie"));
+                vh.setIdSzczepienia(rs.getString("id_szczepienia"));
+                vh.setIdSzczepionki(rs.getString("id_szczepionki"));
 
                 vaccineHistories.add(vh);
             }
 
-            consoleTextArea.appendText(selectStmt + "\n");
 
         } catch (SQLException e) {
-            consoleTextArea.appendText("While searching players, an error occurred. \n");
+            consoleTextArea.appendText("Błąd podczas pobierania historii szczepień. \n");
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -109,6 +140,12 @@ public class ClinicViewDAO {
         return vaccineHistories;
     }
 
+    /**
+     * Metoda umożlwiająca dodawanie nowych terminów szczepień.
+     *
+     * @param date
+     * @throws SQLException
+     */
     public void insertVaccineDate(String date) throws SQLException {
         StringBuilder sb = new StringBuilder("INSERT INTO terminy(termin) VALUES('");
         sb.append(date);
@@ -119,11 +156,65 @@ public class ClinicViewDAO {
         try {
 
             dbUtil.dbExecuteUpdate(insertStmt);
-            consoleTextArea.appendText(insertStmt + "\n");
+//            consoleTextArea.appendText(insertStmt + "\n");
             consoleTextArea.appendText("Dodano termin szczepienia." + "\n");
 
         } catch (SQLException e) {
-            consoleTextArea.appendText("Error occurred while inserting new vaccine termin." + "\n");
+            consoleTextArea.appendText("Błąd podczas dodawania nowego terminu szczepienia." + "\n");
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Metoda umożliwiająca aktualizowanie zaszczepienia wybranych pacjentów.
+     *
+     * @param vaccineRegistration
+     * @throws SQLException
+     */
+    public void updateVaccineRegistration(VaccineRegistration vaccineRegistration) throws SQLException {
+        StringBuilder sb = new StringBuilder("UPDATE rejestracja_na_szczepienie SET zaszczepiony = 1 WHERE id_szczepienia = ");
+        sb.append(vaccineRegistration.getIdSzczepienia());
+        sb.append(";");
+        String updateStmt = sb.toString();
+
+        try {
+            dbUtil.dbExecuteUpdate(updateStmt);
+//            consoleTextArea.appendText(updateStmt + "\n");
+            consoleTextArea.appendText("Zaktualizowano rejestrację na szczepienie." + "\n");
+        } catch (SQLException e) {
+            consoleTextArea.appendText("Nie udało się zaktualizować rejestracji na szczepienie." + "\n");
+            throw e;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Metoda umożliwiająca dodawanie zaszczepionego pacjenta do tabeli szczepienia_zrealizowane.
+     *
+     * @param vaccineRegistration
+     * @throws SQLException
+     */
+    public void insertVaccineHistory(VaccineRegistration vaccineRegistration) throws SQLException {
+        StringBuilder sb = new StringBuilder("INSERT INTO szczepienia_zrealizowane(id_pacjenta, id_szczepionki, id_szczepienia, data_szczepienia) VALUES('");
+        sb.append(vaccineRegistration.getPesel());
+        sb.append("', ");
+        sb.append(vaccineRegistration.getIdSzczepionki());
+        sb.append(", ");
+        sb.append(vaccineRegistration.getIdSzczepienia());
+        sb.append(", '");
+        sb.append(vaccineRegistration.getTermin());
+        sb.append("');");
+
+        String insertStmt = sb.toString();
+        try {
+            dbUtil.dbExecuteUpdate(insertStmt);
+//            consoleTextArea.appendText(insertStmt + "\n");
+            consoleTextArea.appendText("Potwierdzono realizację szczepienia." + "\n");
+        } catch (SQLException e) {
+            consoleTextArea.appendText("Nie udało się potwierdzić zrealizowanego szczepienia." + "\n");
             throw e;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

@@ -1,4 +1,5 @@
 package edu.ib.punktszczepien;
+
 import javafx.scene.control.TextArea;
 
 import javax.sql.rowset.CachedRowSet;
@@ -6,6 +7,14 @@ import java.sql.*;
 
 
 public class DBUtil {
+    /**
+     * Klasa zawiera metody odpowiedzialne za połączenie, rozłączenie z bazą danych,
+     * wykonywanie zapytań oraz zawracanie ich wyników za pomocą klasy ResultSet
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
 
     private String userName;
     private String userPassword;
@@ -19,6 +28,13 @@ public class DBUtil {
         this.consoleTextArea = consoleTextArea;
     }
 
+
+    /**
+     * Metoda odpowiedzialna za nawiązanie połączenia z bazą danych.
+     *
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void dbConnect() throws SQLException, ClassNotFoundException {
 
         try {
@@ -32,34 +48,50 @@ public class DBUtil {
         try {
             conn = DriverManager.getConnection(createURL(), userName, userPassword);
         } catch (SQLException e) {
-            consoleTextArea.appendText("Connection Failed! Try again." + "\n");
+            consoleTextArea.appendText("Błąd podczas łączenia, spróbuj ponownie !" + "\n");
             e.printStackTrace();
             throw e;
         }
 
     }
 
+    /**
+     * Metoda odpowiedzialba za rozłączenie z bazą danych.
+     *
+     * @throws SQLException
+     */
     public void dbDisconnect() throws SQLException {
 
         try {
 
             if (conn != null && !conn.isClosed()) {
-
                 conn.close();
-//                consoleTextArea.appendText("Connection closed. Bye!" + "\n");
-
             }
         } catch (Exception e) {
             throw e;
         }
     }
 
+    /**
+     * Metoda odpowiedzialna za zwrócenie adresu url do bazy danych.
+     *
+     * @return urlUSB
+     */
     private String createURL() {
 
         StringBuilder urlSB = new StringBuilder("jdbc:mysql://localhost:3306/punkt_szczepien");
         return urlSB.toString();
     }
 
+    /**
+     * Metoda służy do wykonywania zapytań oraz
+     * zwracania wyniku za pomocą klasy CatchedRowSet.
+     *
+     * @param queryStmt
+     * @return crs
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public ResultSet dbExecuteQuery(String queryStmt) throws SQLException, ClassNotFoundException {
 
         PreparedStatement stmt = null;
@@ -93,7 +125,14 @@ public class DBUtil {
         return crs;
     }
 
-    public  void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
+    /**
+     * Metoda służy do wykonywania zapytań modyfikujących bazę danych.
+     *
+     * @param sqlStmt
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
 
         Statement stmt = null;
         try {

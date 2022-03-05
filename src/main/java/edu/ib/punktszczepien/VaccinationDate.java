@@ -4,6 +4,17 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class VaccinationDate {
+    /**
+     * Klasa zawierjąca indromacje odnośnie
+     * dostępnego terminu szczepienia.
+     * Polom klasy przypisywane są obiekty klas właściwości.
+     * Oprócz standardowych seterów i getterów
+     * każdy atrybut posiada również getter właściwości.
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
     private StringProperty termin;
 
     public VaccinationDate() {

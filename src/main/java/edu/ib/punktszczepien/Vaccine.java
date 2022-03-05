@@ -6,6 +6,17 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Vaccine {
+    /**
+     * Klasa zawierająca informacje
+     * odnośnie szczepionek - ich id oraz nazwa.
+     * Polom klasy przypisywane są obiekty klas właściwości.
+     * Oprócz standardowych seterów i getterów
+     * każdy atrybut posiada również getter właściwości.
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
     private IntegerProperty id;
     private StringProperty nazwa;
 

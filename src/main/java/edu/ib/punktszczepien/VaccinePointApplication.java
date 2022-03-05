@@ -8,6 +8,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class VaccinePointApplication extends Application {
+    /**
+     * Klasa odpowiadająca za uruchomienie
+     * aplikacji punktu szczepień
+     *
+     * @author MS
+     * @version 1.0
+     * @since 2022-02-08
+     */
     @Override
     public void start(Stage stage) throws IOException {
 

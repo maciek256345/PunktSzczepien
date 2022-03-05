@@ -1,5 +1,6 @@
 package edu.ib.punktszczepien;//import com.sun.rowset.CachedRowSetImpl;
-import com.sun.rowset.CachedRowSetImpl;
+
+import com.sun.rowset.*;
 
 import javax.sql.RowSet;
 import javax.sql.RowSetEvent;

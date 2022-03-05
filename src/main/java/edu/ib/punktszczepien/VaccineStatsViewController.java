@@ -14,6 +14,14 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Klasa odpowiadająca za zarządzanie oknem 'Vaccine Stats' utworzonym po wcisnięciu przycisku "Wyświetl statystyki szczepień".
+ * Zawiera metodę umożliwiającą wyświetlenie danych o szczepieniach zrealizowanych w zadanym dniu w postaci wykresu liniowego (showStats).
+ *
+ * @author AK
+ * @version 1.0
+ * @since 2022-02-08
+ */
 public class VaccineStatsViewController {
 
     @FXML
@@ -34,6 +42,13 @@ public class VaccineStatsViewController {
     @FXML
     private Button showStatsBtn;
 
+    /**
+     * Metoda umożliwiająca wyświetlenie danych o szczepieniach zrealizowanych w zadanym dniu w postaci wykresu liniowego.
+     * Przechowywane dane za pośrednictwem mapy (para klucz-wartość).
+     * Kluczem jest data szczepienia a wartością ilość osób zaszczepionych w danym dniu.
+     *
+     * @param event
+     */
     @FXML
     void showStats(ActionEvent event) {
         Stage stage = (Stage) showStatsBtn.getScene().getWindow();

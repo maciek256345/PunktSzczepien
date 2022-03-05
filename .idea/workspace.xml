@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d32697b7-827d-42bf-85ec-885d08a4bb5c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_vldrus_cachedrowset_wrapper_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PunktSzczepien.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/CachedRowSetWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/CachedRowSetWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/ClinicViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/ClinicViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/ClinicViewDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/ClinicViewDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/PatientView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/PatientView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/PatientViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/PatientViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/PatientViewDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/PatientViewDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/StartViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/StartViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccinationDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccinationDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccinationDateDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccinationDateDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/Vaccine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/Vaccine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccinePointApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccinePointApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineStatsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ib/punktszczepien/VaccineStatsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ib/punktszczepien/clinicView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ib/punktszczepien/clinicView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ib/punktszczepien/patientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ib/punktszczepien/patientView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ib/punktszczepien/vaccineStatsView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ib/punktszczepien/vaccineStatsView.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="24q5dhMJdxPuGdQtdb0Y4qO02R8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="VaccinePointApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ib.punktszczepien.VaccinePointApplication" />
+      <module name="PunktSzczepien" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ib.punktszczepien.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.VaccinePointApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d32697b7-827d-42bf-85ec-885d08a4bb5c" name="Changes" comment="" />
+      <created>1644345369314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644345369314</updated>
+      <workItem from="1644345372270" duration="132000" />
+      <workItem from="1646486977590" duration="315000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

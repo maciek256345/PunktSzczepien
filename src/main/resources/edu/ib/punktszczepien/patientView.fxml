@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -16,8 +18,8 @@
 <?import javafx.scene.text.Font?>
 
 <SplitPane dividerPositions="0.32620320855614965" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.punktszczepien.PatientViewController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="599.0" prefWidth="0.0">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="599.0" prefWidth="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="41.0" text="Nazwa użytkownika:" textFill="#0277a9" textOverrun="CENTER_ELLIPSIS">
                <font>
@@ -51,14 +53,14 @@
                <font>
                   <Font name="Segoe UI Light" size="12.0" />
                </font></Button>
-            <TextArea fx:id="consoleTextArea" editable="false" layoutX="36.0" layoutY="257.0" prefHeight="200.0" prefWidth="213.0" />
-            <ImageView fitHeight="176.0" fitWidth="204.0" layoutX="93.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+            <TextArea fx:id="consoleTextArea" editable="false" layoutX="5.0" layoutY="257.0" prefHeight="200.0" prefWidth="281.0" />
+            <ImageView fitHeight="120.0" fitWidth="159.0" layoutX="123.0" layoutY="457.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../src/main/resources/Images/ikonaPacjent.png" />
+                  <Image url="@../../../Images/ikonaPacjent.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-    <AnchorPane fx:id="usersMenu" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="332.0">
+      <AnchorPane fx:id="usersMenu" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="332.0">
          <children>
             <Label alignment="CENTER" layoutX="55.0" layoutY="261.0" prefHeight="26.0" prefWidth="192.0" text="Uzupełnij swoje dane:" textFill="#0277a9">
                <font>
@@ -90,7 +92,7 @@
                   <Font name="Segoe UI Light" size="13.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="331.0" layoutY="2.0" prefHeight="74.0" prefWidth="214.0" text="Zarejestruj się na szczepienie lub zmień termin:" textFill="#0277a9" wrapText="true">
+            <Label alignment="CENTER" layoutX="331.0" layoutY="2.0" prefHeight="74.0" prefWidth="242.0" text="Zarejestruj się na szczepienie lub zmień termin:" textFill="#0277a9" wrapText="true">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -105,27 +107,21 @@
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="registerVaccinationBtn" disable="true" layoutX="333.0" layoutY="220.0" mnemonicParsing="false" onAction="#registerBtnClicked" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #11B5FF;" text="Zarejestruj" textFill="WHITE">
+            <Button fx:id="registerVaccinationBtn" disable="true" layoutX="391.0" layoutY="210.0" mnemonicParsing="false" onAction="#registerBtnClicked" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #11B5FF;" text="Zarejestruj" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="changeDateBtn" alignment="CENTER" contentDisplay="BOTTOM" disable="true" layoutX="425.0" layoutY="220.0" mnemonicParsing="false" onAction="#changeDateBtnClicked" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #11B5FF;" text="Zmień termin" textFill="WHITE">
+            <Button fx:id="changeDateBtn" alignment="CENTER" contentDisplay="BOTTOM" disable="true" layoutX="385.0" layoutY="535.0" mnemonicParsing="false" onAction="#changeDateBtnClicked" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #11B5FF;" text="Zmień termin" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="13.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="305.0" layoutY="274.0" prefHeight="30.0" prefWidth="249.0" text="Historia szczepień" textFill="#0277a9">
+            <Label alignment="CENTER" layoutX="299.0" layoutY="272.0" prefHeight="30.0" prefWidth="270.0" text="Szczepienia wykonane i nadchodzące" textFill="#0277a9" wrapText="true">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="vaccinationHistoryTableView" disable="true" layoutX="295.0" layoutY="367.0" prefHeight="190.0" prefWidth="280.0">
-              <columns>
-                <TableColumn fx:id="vaccinationTypeCol" minWidth="14.0" prefWidth="110.0" text="Typ szczepienia" />
-                <TableColumn fx:id="vaccinationDateCol" minWidth="14.0" prefWidth="170.0" sortType="DESCENDING" text="Termin" />
-              </columns>
-            </TableView>
             <Button fx:id="newPatientBtn" disable="true" layoutX="69.0" layoutY="131.0" mnemonicParsing="false" onAction="#newPatientClicked" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #11B5FF;" text="Jestem nowym pacjentem" textFill="WHITE">
                <padding>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
@@ -145,11 +141,6 @@
                   <Font name="Verdana" size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="showHistoryBtn" disable="true" layoutX="350.0" layoutY="319.0" mnemonicParsing="false" onAction="#showHistoryBtnClicked" style="-fx-background-color: #11B5FF;" text="Wyświetl historię szczepień" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Light" size="13.0" />
-               </font>
-            </Button>
             <Button fx:id="confrimationBtn" disable="true" layoutX="104.0" layoutY="65.0" mnemonicParsing="false" onAction="#confirmationBtnClicked" style="-fx-background-color: #11B5FF;" text="Potwierdzam" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semilight" size="12.0" />
@@ -157,6 +148,38 @@
             </Button>
             <ChoiceBox fx:id="vaccinationTypeChoiceBox" disable="true" layoutX="352.0" layoutY="99.0" prefHeight="28.0" prefWidth="165.0" />
             <ChoiceBox fx:id="vaccinationDateChoiceBox" disable="true" layoutX="352.0" layoutY="165.0" prefHeight="27.0" prefWidth="166.0" />
+            <TabPane fx:id="vaccinationPan" disable="true" layoutX="285.0" layoutY="302.0" prefHeight="220.0" prefWidth="300.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="vaccinationHistoryTab" text="Historia">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="vaccinationHistoryTableView" prefHeight="220.0" prefWidth="300.0">
+                                 <columns>
+                                    <TableColumn fx:id="vaccinationTypeCol" minWidth="14.0" prefWidth="120.0" text="Typ szczepienia" />
+                                    <TableColumn fx:id="vaccinationDateCol" minWidth="14.0" prefWidth="180.0" sortType="DESCENDING" text="Termin" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="comingVaccinationsTab" text="Nadchodzące">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="comingVaccinationsTableView" prefHeight="220.0" prefWidth="300.0">
+                                 <columns>
+                                    <TableColumn fx:id="comingVaccinationTypeCol" minWidth="14.0" prefWidth="120.0" text="Typ szczepienia" />
+                                    <TableColumn fx:id="comingVaccinationDateCol" minWidth="14.0" prefWidth="180.0" sortType="DESCENDING" text="Termin" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
          </children></AnchorPane>
-  </items>
+   </items>
 </SplitPane>
